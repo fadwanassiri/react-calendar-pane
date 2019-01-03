@@ -100,4 +100,13 @@ describe('Calendar', () => {
       asserter(calendar).assertDayOfTheWeek(format);
     });
   });
+
+  it('displays custom nav buttons content', () => {
+    const calendar = (
+      <Calendar date={moment()} onSelect={onSelect}
+                  previousButtonContent="<-~-" nextButtonContent="-~->" />
+    );
+
+    asserter(calendar).assertNavButtons("<-~-", "-~->");
+  });
 });

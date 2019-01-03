@@ -73,7 +73,7 @@ class Calendar extends Component {
   }
 
   render() {
-    const { startOfWeekIndex, dayRenderer, dayOfWeekFormat } = this.props;
+    const { startOfWeekIndex, dayRenderer, dayOfWeekFormat, previousButtonContent, nextButtonContent } = this.props;
 
     const classes = ['Calendar', this.props.className].join(' ');
 
@@ -154,7 +154,7 @@ class Calendar extends Component {
         <tr className="month-header">
           <th className="nav previous">
             <button className="nav-inner" onClick={this.previous} type="button">
-              «
+              {previousButtonContent}
             </button>
           </th>
           <th colSpan="5">
@@ -163,7 +163,7 @@ class Calendar extends Component {
           </th>
           <th className="nav next">
             <button className="nav-inner" onClick={this.next} type="button">
-              »
+              {nextButtonContent}        
             </button>
           </th>
         </tr>
@@ -197,6 +197,8 @@ Calendar.defaultProps = {
   locale: 'en',
   startOfWeekIndex: 0,
   dayOfWeekFormat: 'dd',
+  previousButtonContent: '«',
+  nextButtonContent: '»',  
 };
 Calendar.propTypes = {
   onSelect: PropTypes.func.isRequired,
@@ -208,6 +210,8 @@ Calendar.propTypes = {
   startOfWeekIndex: PropTypes.number,
   dayRenderer: PropTypes.func,
   dayOfWeekFormat: PropTypes.string,
+  previousButtonContent: PropTypes.node,
+  nextButtonContent: PropTypes.node,
 };
 
 export default Calendar;

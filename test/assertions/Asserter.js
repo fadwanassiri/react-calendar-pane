@@ -93,5 +93,17 @@ export default jsx => {
 
       return this;
     },
+
+    assertNavButtons(prevBtnContent, nextBtnContent) {
+      const navButtons = scryRenderedDOMComponentsWithClass(calendar, 'nav-inner');
+
+      let value = findDOMNode(navButtons[0]).textContent;
+      expect(value).to.equal(prevBtnContent);
+
+      value = findDOMNode(navButtons[1]).textContent;
+      expect(value).to.equal(nextBtnContent);
+
+      return this;
+    },
   };
 };
